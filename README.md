@@ -2,10 +2,6 @@
 
 Aligning Features and Evidence for Knowledge Distillation
 
-本代码包提供 FEKD 学生蒸馏训练和图片推理。教师模型及权重由使用者自行提供；训练轮数、学习率、损失权重和预热日程等参数均通过命令行显式输入，包内不附带训练参数配置文件。
-
-当前学生为 CIFAR-100 的 ResNet8×4，外部教师接口对应三阶段、通道数为 64/128/256 的 CIFAR ResNet。训练中复用冻结的教师分类器，并通过双向特征交互与 Dirichlet KL 进行蒸馏。
-
 ## 目录
 
 ```text
@@ -30,8 +26,6 @@ FEKD_code/
 ├── environment.yml
 └── pyproject.toml
 ```
-
-以下命令在项目根目录执行。公开的运行脚本为 `train_student.py` 和 `predict.py`。
 
 ## 配置环境
 
@@ -71,8 +65,6 @@ DATA_ROOT/
     ├── test
     └── meta
 ```
-
-训练读取 `train`。首次运行时可在训练命令末尾添加 `--download`，由 torchvision 下载数据。训练采用随机裁剪和水平翻转，训练与推理使用相同的 CIFAR-100 归一化。
 
 ## 训练命令
 
